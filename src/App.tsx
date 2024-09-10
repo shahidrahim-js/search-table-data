@@ -24,7 +24,8 @@ function App() {
   const searchedUsers = () => {
     return (
       users?.filter((user) => {
-        return user.firstName.toLowerCase().includes(searchText.toLowerCase());
+        return (user.firstName.toLowerCase().includes(searchText.toLowerCase())
+        || user.lastName.toLowerCase().includes(searchText.toLowerCase()));
       }) || users
     );
   };
