@@ -21,14 +21,10 @@ function App() {
     setSearchText(e.target.value);
   };
 
-  const searchedUsers = () => {
-    return (
-      users?.filter((user) => {
-        return (user.firstName.toLowerCase().includes(searchText.toLowerCase())
-        || user.lastName.toLowerCase().includes(searchText.toLowerCase()));
-      }) || users
-    );
-  };
+  const searchedUsers = users?.filter((user) => {
+    return (user?.firstName?.toLowerCase()?.includes(searchText.toLowerCase())
+    || user?.lastName?.toLowerCase()?.includes(searchText.toLowerCase()));
+  }) || users;
 
   return (
     <>
@@ -49,7 +45,7 @@ function App() {
             </tr>
           </thead>
           <tbody>
-            {searchedUsers()?.map((user) => {
+            {searchedUsers?.map((user) => {
               return (
                 <tr>
                   <td>{user.id}</td>
